@@ -1,0 +1,316 @@
+:root {
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --text-color: #1e293b;
+    --border-color: #e2e8f0;
+    --radius: 12px;
+    --success-color: #16a34a;
+    --danger-color: #dc2626;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    user-select: none;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 12px;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ================= 1. شاشة الإعدادات ================= */
+.main-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.main-header h1 {
+    font-size: 22px;
+    color: var(--primary-color);
+    margin-bottom: 4px;
+}
+
+.main-header p {
+    font-size: 13px;
+    color: #64748b;
+}
+
+.setup-group {
+    background: var(--card-bg);
+    padding: 14px;
+    border-radius: var(--radius);
+    margin-bottom: 14px;
+    border: 1px solid var(--border-color);
+    width: 100%;
+}
+
+.group-title {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #334155;
+}
+
+.custom-select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    outline: none;
+    font-size: 14px;
+    background: #f8fafc;
+}
+
+.subjects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.subject-card {
+    background: #f8fafc;
+    border: 2px solid var(--border-color);
+    padding: 12px;
+    border-radius: var(--radius);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.subject-card .icon { font-size: 24px; }
+.subject-card .name { font-size: 13px; font-weight: bold; }
+
+.subject-card.active {
+    border-color: var(--primary-color);
+    background: #eff6ff;
+    color: var(--primary-color);
+}
+
+.pill-group {
+    display: flex;
+    gap: 8px;
+}
+
+.pill-btn {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    background: #f8fafc;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #475569;
+}
+
+.pill-btn.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* ================= 2. شاشة الامتحان ================= */
+.exam-header {
+    background: var(--card-bg);
+    padding: 14px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    margin-bottom: 14px;
+    width: 100%;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.subject-badge {
+    background: #eff6ff;
+    color: var(--primary-color);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.timer-badge {
+    background: #eff6ff;
+    color: #2563eb;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: monospace;
+    transition: all 0.3s ease;
+}
+
+.timer-badge.warning {
+    background: #fef2f2 !important;
+    color: #dc2626 !important;
+    border: 1px solid #fca5a5;
+}
+
+.header-info {
+    font-size: 13px;
+    font-weight: bold;
+    color: #64748b;
+    margin-bottom: 6px;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 6px;
+    background: #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 10%;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.question-card {
+    background: var(--card-bg);
+    padding: 16px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    width: 100%;
+}
+
+.question-text {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.option-btn {
+    padding: 14px;
+    border: 1px solid var(--border-color);
+    background: #f8fafc;
+    border-radius: 8px;
+    text-align: right;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.option-btn.selected {
+    border-color: var(--primary-color);
+    background: #eff6ff;
+    font-weight: bold;
+}
+
+.option-btn.correct-option {
+    background: #dcfce7 !important;
+    border-color: #16a34a !important;
+    color: #15803d !important;
+    font-weight: bold;
+}
+
+.option-btn.wrong-option {
+    background: #fee2e2 !important;
+    border-color: #dc2626 !important;
+    color: #b91c1c !important;
+}
+
+.option-btn.disabled {
+    cursor: not-allowed;
+}
+
+.feedback-box {
+    margin-top: 16px;
+    padding: 14px;
+    border-radius: var(--radius);
+    background: #f8fafc;
+    border: 1px solid var(--border-color);
+}
+
+.feedback-status {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.feedback-status.correct { color: var(--success-color); }
+.feedback-status.wrong { color: var(--danger-color); }
+
+.explanation-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 13px;
+}
+
+.expl-item strong {
+    display: block;
+    color: #1e293b;
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.expl-item p {
+    color: #334155;
+    line-height: 1.6;
+    white-space: pre-line;
+}
+
+.trick-item {
+    background: #fffbe3;
+    padding: 10px;
+    border-radius: 8px;
+    border-right: 4px solid #f59e0b;
+}
+
+.btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-primary { background: var(--primary-color); color: white; }
