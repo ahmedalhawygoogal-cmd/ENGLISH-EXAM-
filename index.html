@@ -1,0 +1,108 @@
+<!DOCTYPE html>  
+<html lang="ar" dir="rtl">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>منصة الامتحانات التعليمية - الإنجليزية</title>  
+    <link rel="stylesheet" href="style.css">  
+</head>  
+<body>  
+    <div class="app-container">  
+        <!-- 1. شاشة الإعدادات -->  
+        <div id="setup-screen" class="screen">  
+            <header class="main-header">  
+                <h1>🎓 منصة الامتحانات</h1>  
+                <p>اختر إعدادات اختبار اللغة الإنجليزية للبدء</p>  
+            </header>  
+
+            <div class="setup-group">  
+                <label class="group-title">📚 المنهج الدراسي:</label>  
+                <select id="curriculum-select" class="custom-select">  
+                    <option value="general">عام / شامل</option>  
+                </select>  
+            </div>  
+
+            <div class="setup-group">  
+                <label class="group-title">📖 المادة:</label>  
+                <div class="subjects-grid single-subject">  
+                    <div class="subject-card active" data-subject="english">  
+                        <span class="icon">🇬🇧</span>  
+                        <span class="name">اللغة الإنجليزية</span>  
+                    </div>  
+                </div>  
+            </div>  
+
+            <div class="setup-group">  
+                <label class="group-title">🎯 مستوى الصعوبة:</label>  
+                <div class="pill-group" id="diff-group">  
+                    <button class="pill-btn active" data-diff="easy">سهل</button>  
+                    <button class="pill-btn" data-diff="medium">متوسط</button>  
+                    <button class="pill-btn" data-diff="hard">صعب</button>  
+                </div>  
+            </div>  
+
+            <div class="setup-group">  
+                <label class="group-title">🔢 عدد الأسئلة:</label>  
+                <div class="pill-group" id="count-group">  
+                    <button class="pill-btn" data-count="5">5 أسئلة</button>  
+                    <button class="pill-btn" data-count="10">10 أسئلة</button>  
+                    <button class="pill-btn" data-count="15">15 سؤال</button>  
+                    <button class="pill-btn active" data-count="20">20 سؤال</button>  
+                </div>  
+            </div>  
+
+            <button id="start-btn" class="btn btn-primary">ابدأ الامتحان 🚀</button>  
+        </div>  
+
+        <!-- 2. شاشة الامتحان -->  
+        <div id="exam-screen" class="screen hidden" style="display: none;">  
+            <header class="exam-header">  
+                <div class="header-top">  
+                    <span id="active-subject-badge" class="subject-badge">🇬🇧 اللغة الإنجليزية</span>  
+                    <span id="timer" class="timer-badge">⏱ 30:00</span>  
+                </div>  
+                <div class="header-info">السؤال <span id="current-q-num">1</span> من <span id="total-q-num">20</span></div>  
+                <div class="progress-bar-container">  
+                    <div id="progress-bar" class="progress-bar"></div>  
+                </div>  
+            </header>  
+
+            <main class="question-card">  
+                <h2 id="question-text" class="question-text">نص السؤال يظهر هنا...</h2>  
+
+                <div id="options-container" class="options-container">  
+                    <!-- الأزرار تنشأ عبر الجافاسكريبت -->  
+                </div>  
+
+                <button id="confirm-btn" class="btn btn-primary" disabled>تأكيد الإجابة</button>  
+
+                <div id="feedback-box" class="feedback-box hidden" style="display: none;">  
+                    <div id="feedback-status" class="feedback-status"></div>  
+                    <div class="explanation-content">  
+                        <div class="expl-item">  
+                            <strong>📖 القاعدة والشرح:</strong>  
+                            <p id="expl-rule"></p>  
+                        </div>  
+                        <div class="expl-item">  
+                            <strong>✅ لماذا هذه الإجابة؟</strong>  
+                            <p id="expl-why-correct"></p>  
+                        </div>  
+                        <div class="expl-item">  
+                            <strong>❌ لماذا الاختيارات الأخرى خطأ؟</strong>  
+                            <p id="expl-why-wrong"></p>  
+                        </div>  
+                        <div class="expl-item trick-item">  
+                            <strong>💡 تريك الامتحان:</strong>  
+                            <p id="expl-trick"></p>  
+                        </div>  
+                    </div>  
+                </div>  
+            </main>  
+        </div>  
+    </div>  
+
+    <!-- استدعاء ملف البيانات أولاً ثم كود التشغيل -->  
+    <script src="data.js"></script>  
+    <script src="script.js"></script>
+</body>  
+</html>
